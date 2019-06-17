@@ -35,7 +35,7 @@ if len(sys.argv) == 1:
 		  f' {script_name} {{source}} {{destination}} {{text}}\n'
 		  f' {script_name} {{text}} {{destination}}\n'
 		  f' {script_name} {{text}} {{destination}} {{source}}')
-	sys.exit(1)
+	exit(1)
 #############
 
 ##################
@@ -101,7 +101,7 @@ elif last in translator_languages:
 		dest = last
 """"""
 
-""" Remove unnecessary arguments from sys.argv table"""
+""" Remove unnecessary arguments from sys.argv array"""
 if source is not "":
 	sys.argv.remove(source)
 
@@ -118,7 +118,7 @@ for arg in sys.argv:
 ################################################
 
 
-debug(f'Will be translating from: {source}, to language: {dest}')
+debug(f'I will translate from: {source}, to: {dest} language')
 debug(f'Text to translate: {text}')
 
 
@@ -133,6 +133,8 @@ else:
 	translated_text = translator.translate(text)
 
 debug(f'Text translated: {translated_text.text}')
+debug(f'GoogleTranslate language detection')
+debug(f'From: {translated_text.src}, To: {translated_text.dest}')
 ################################################
 
 ###########################
